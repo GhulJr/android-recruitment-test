@@ -12,6 +12,7 @@ import dagger.android.AndroidInjection
 import dog.snow.androidrecruittest.R
 import dog.snow.androidrecruittest.data.source.remote.Resource
 import dog.snow.androidrecruittest.databinding.SplashActivityBinding
+import dog.snow.androidrecruittest.ui.base.BaseActivity
 import dog.snow.androidrecruittest.ui.common.view_model.ViewModelFactory
 import dog.snow.androidrecruittest.ui.page.main.MainActivity
 import dog.snow.androidrecruittest.utils.subscribe
@@ -20,10 +21,7 @@ import okhttp3.OkHttpClient
 import java.io.File
 import javax.inject.Inject
 
-class SplashActivity : AppCompatActivity() {
-
-    @Inject //TODO: refactor this to be used by BaseActivity
-    lateinit var viewModelFactory: ViewModelFactory
+class SplashActivity : BaseActivity() {
     private lateinit var splashViewModel: SplashViewModel
     private lateinit var binding: SplashActivityBinding
 
@@ -36,17 +34,14 @@ class SplashActivity : AppCompatActivity() {
 
     /** Utils. */
 
-    private fun setupViewModel() {
+    override fun setupViewModel() {
         splashViewModel = ViewModelProvider(this, viewModelFactory)[SplashViewModel::class.java]
         splashViewModel.fetchDataState.subscribe(this) {
             setLoadingView(false)
             when(it) {
-                is Resource.Success -> {
-                    startActivity(Intent(this, MainActivity::class.java))
-                    finish()
-                }
+                is Resource.Success -> redirectToActivity(MainActivity::class.java)
                 is Resource.Loading -> setLoadingView(true)
-                is Resource.Error -> showError(it.message)
+                is Resource.Error   -> showError(it.message)
             }
         }
     }

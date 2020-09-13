@@ -25,7 +25,6 @@ class SourceRepositoryImpl @Inject constructor(
     private val albumService: AlbumService,
     private val userService: UserService,
     private val dbManager: DatabaseManager
-
 ) : SourceRepository {
 
     override fun pullData(): Single<out Resource<Void>> = pullPhotos()

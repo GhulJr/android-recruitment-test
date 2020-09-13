@@ -22,6 +22,7 @@ class SplashViewModel @Inject constructor(
     override fun onCleared() {
         super.onCleared()
         disposable.clear() // TODO: add to base class
+        Log.i(TAG, "Cleared. ")
     }
 
     fun fetchData() {
