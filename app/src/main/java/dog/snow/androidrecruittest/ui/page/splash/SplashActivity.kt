@@ -1,5 +1,6 @@
 package dog.snow.androidrecruittest.ui.page.splash
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -12,6 +13,7 @@ import dog.snow.androidrecruittest.R
 import dog.snow.androidrecruittest.data.source.remote.Resource
 import dog.snow.androidrecruittest.databinding.SplashActivityBinding
 import dog.snow.androidrecruittest.ui.common.view_model.ViewModelFactory
+import dog.snow.androidrecruittest.ui.page.main.MainActivity
 import dog.snow.androidrecruittest.utils.subscribe
 import okhttp3.Cache
 import okhttp3.OkHttpClient
@@ -19,8 +21,6 @@ import java.io.File
 import javax.inject.Inject
 
 class SplashActivity : AppCompatActivity() {
-
-    //TODO: add navigation and databinding libraries.
 
     @Inject //TODO: refactor this to be used by BaseActivity
     lateinit var viewModelFactory: ViewModelFactory
@@ -42,7 +42,8 @@ class SplashActivity : AppCompatActivity() {
             setLoadingView(false)
             when(it) {
                 is Resource.Success -> {
-
+                    startActivity(Intent(this, MainActivity::class.java))
+                    finish()
                 }
                 is Resource.Loading -> setLoadingView(true)
                 is Resource.Error -> showError(it.message)

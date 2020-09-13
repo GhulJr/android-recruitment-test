@@ -43,7 +43,6 @@ class SplashViewModel @Inject constructor(
 
     companion object {
         private val TAG = SplashViewModel::class.simpleName
-        private val disposable: CompositeDisposable =
-            CompositeDisposable() //TODO: add to base class
+        private val disposable: CompositeDisposable = CompositeDisposable() //TODO: add to base class
     }
 }
