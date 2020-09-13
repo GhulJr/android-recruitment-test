@@ -1,5 +1,6 @@
 package dog.snow.androidrecruittest.di.module
 
+import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import dog.snow.androidrecruittest.data.repository.SourceRepository
@@ -7,9 +8,9 @@ import dog.snow.androidrecruittest.data.repository.SourceRepositoryImpl
 import javax.inject.Singleton
 
 @Module
-class RepositoryModule {
+interface RepositoryModule {
 
-    @Provides
+    @Binds
     @Singleton
-    fun provideRemoteRepository(remoteRepositoryImpl: SourceRepositoryImpl): SourceRepository = remoteRepositoryImpl
+    fun provideSourceRepository(remoteSourceImpl: SourceRepositoryImpl): SourceRepository
 }
