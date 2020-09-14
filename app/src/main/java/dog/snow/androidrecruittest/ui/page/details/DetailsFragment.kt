@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import dagger.android.support.AndroidSupportInjection
 import dog.snow.androidrecruittest.R
 import dog.snow.androidrecruittest.databinding.FragmentDetailsBinding
+import dog.snow.androidrecruittest.utils.subscribe
 import javax.inject.Inject
 
 class DetailsFragment : Fragment(R.layout.fragment_details) {
@@ -33,8 +34,13 @@ class DetailsFragment : Fragment(R.layout.fragment_details) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setupObservers()
         detailsViewModel.getDetails(DetailsFragmentArgs.fromBundle(requireArguments()).photoUId)
     }
 
+    /** Utils. */
 
+    private fun setupObservers() {
+        detailsViewModel.details.subscribe(this) { binding.detail = it }
+    }
 }
