@@ -4,9 +4,9 @@ import android.app.Application
 import dagger.Module
 import dagger.Provides
 import dog.snow.androidrecruittest.data.model.MyObjectBox
-import dog.snow.androidrecruittest.data.model.album.RawAlbum
-import dog.snow.androidrecruittest.data.model.photo.RawPhoto
-import dog.snow.androidrecruittest.data.model.user.RawUser
+import dog.snow.androidrecruittest.data.model.raw.RawAlbum
+import dog.snow.androidrecruittest.data.model.raw.RawPhoto
+import dog.snow.androidrecruittest.data.model.raw.RawUser
 import io.objectbox.Box
 import io.objectbox.BoxStore
 import io.objectbox.kotlin.boxFor

@@ -1,7 +1,6 @@
-package dog.snow.androidrecruittest.data.model.common
+package dog.snow.androidrecruittest.data.model.type.common
 
 import android.os.Parcelable
-import com.fasterxml.jackson.annotation.JsonProperty
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize

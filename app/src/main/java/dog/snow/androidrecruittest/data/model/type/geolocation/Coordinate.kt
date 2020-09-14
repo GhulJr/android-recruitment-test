@@ -1,4 +1,4 @@
-package dog.snow.androidrecruittest.data.model.geolocation
+package dog.snow.androidrecruittest.data.model.type.geolocation
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize

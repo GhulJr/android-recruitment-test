@@ -1,9 +1,9 @@
-package dog.snow.androidrecruittest.data.model.album
+package dog.snow.androidrecruittest.data.model.raw
 
 import android.os.Parcelable
 import com.fasterxml.jackson.annotation.JsonProperty
-import dog.snow.androidrecruittest.data.model.common.UId
-import dog.snow.androidrecruittest.data.model.common.Title
+import dog.snow.androidrecruittest.data.model.type.common.UId
+import dog.snow.androidrecruittest.data.model.type.common.Title
 import dog.snow.androidrecruittest.utils.Converters
 import io.objectbox.annotation.Convert
 import io.objectbox.annotation.Entity

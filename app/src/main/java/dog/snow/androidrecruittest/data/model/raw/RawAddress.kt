@@ -1,12 +1,12 @@
-package dog.snow.androidrecruittest.data.model.address
+package dog.snow.androidrecruittest.data.model.raw
 
 import android.os.Parcelable
 import com.fasterxml.jackson.annotation.JsonProperty
-import dog.snow.androidrecruittest.data.model.geolocation.RawGeo
-import dog.snow.androidrecruittest.utils.Converters
-import io.objectbox.annotation.Convert
+import dog.snow.androidrecruittest.data.model.type.address.City
+import dog.snow.androidrecruittest.data.model.type.address.Street
+import dog.snow.androidrecruittest.data.model.type.address.Suite
+import dog.snow.androidrecruittest.data.model.type.address.ZipCode
 import io.objectbox.annotation.Id
-import io.objectbox.relation.ToOne
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize

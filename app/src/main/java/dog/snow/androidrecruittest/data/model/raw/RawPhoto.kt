@@ -1,10 +1,10 @@
-package dog.snow.androidrecruittest.data.model.photo
+package dog.snow.androidrecruittest.data.model.raw
 
 import android.os.Parcelable
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonProperty
-import dog.snow.androidrecruittest.data.model.common.Title
-import dog.snow.androidrecruittest.data.model.common.UId
+import dog.snow.androidrecruittest.data.model.type.common.Title
+import dog.snow.androidrecruittest.data.model.type.common.UId
+import dog.snow.androidrecruittest.data.model.type.photo.Url
 import dog.snow.androidrecruittest.utils.Converters
 import io.objectbox.annotation.Convert
 import io.objectbox.annotation.Entity
@@ -26,7 +26,7 @@ data class RawPhoto(
     val uId: UId,
     @JsonProperty("albumId")
     @Convert(converter = Converters.UID::class, dbType = Int::class)
-    val albumUId: dog.snow.androidrecruittest.data.model.common.UId,
+    val albumUId: dog.snow.androidrecruittest.data.model.type.common.UId,
     @JsonProperty("title")
     @Convert(converter = Converters.TITLE::class, dbType = String::class)
     val title: Title,
@@ -53,7 +53,7 @@ data class RawPhoto(
     val uId: Id,
     @JsonProperty("albumId")
     @Convert(converter = Converters.UID::class, dbType = Int::class)
-    val albumUUId: dog.snow.androidrecruittest.data.model.common.UId,
+    val albumUUId: dog.snow.androidrecruittest.data.model.type.common.UId,
     @JsonProperty("title")
     @Convert(converter = Converters.TITLE::class, dbType = String::class)
     val title: Title,

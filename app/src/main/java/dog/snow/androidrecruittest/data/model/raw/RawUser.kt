@@ -1,17 +1,20 @@
-package dog.snow.androidrecruittest.data.model.user
+package dog.snow.androidrecruittest.data.model.raw
 
 import android.os.Parcelable
 import com.fasterxml.jackson.annotation.JsonProperty
-import dog.snow.androidrecruittest.data.model.address.RawAddress
-import dog.snow.androidrecruittest.data.model.common.UId
-import dog.snow.androidrecruittest.data.model.common.Name
-import dog.snow.androidrecruittest.data.model.company.RawCompany
+import dog.snow.androidrecruittest.data.model.raw.RawAddress
+import dog.snow.androidrecruittest.data.model.raw.RawCompany
+import dog.snow.androidrecruittest.data.model.type.common.UId
+import dog.snow.androidrecruittest.data.model.type.common.Name
+import dog.snow.androidrecruittest.data.model.type.user.Email
+import dog.snow.androidrecruittest.data.model.type.user.Phone
+import dog.snow.androidrecruittest.data.model.type.user.Username
+import dog.snow.androidrecruittest.data.model.type.user.Website
 import dog.snow.androidrecruittest.utils.Converters
 import io.objectbox.annotation.Convert
 import io.objectbox.annotation.Entity
 import io.objectbox.annotation.Id
 import io.objectbox.annotation.Unique
-import io.objectbox.relation.ToOne
 
 import kotlinx.android.parcel.Parcelize
 
