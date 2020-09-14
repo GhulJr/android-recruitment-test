@@ -8,15 +8,20 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import dagger.android.support.AndroidSupportInjection
 import dog.snow.androidrecruittest.R
 import dog.snow.androidrecruittest.databinding.FragmentListBinding
+import dog.snow.androidrecruittest.utils.subscribe
 import javax.inject.Inject
 
 class ListFragment : Fragment() {
     @Inject
     lateinit var listViewModel: ListViewModel
+    @Inject
+    lateinit var listAdapter: ListAdapter
     private lateinit var binding: FragmentListBinding
+
 
     override fun onAttach(context: Context) {
         AndroidSupportInjection.inject(this)
@@ -30,5 +35,27 @@ class ListFragment : Fragment() {
     ): View? {
         binding = FragmentListBinding.inflate(inflater, container, false)
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setupViews()
+        setupObservers()
+    }
+
+    /** Utils. */
+
+    private fun setupViews() {
+        binding.rvItems.apply {
+            adapter = listAdapter
+            layoutManager = LinearLayoutManager(this@ListFragment.context)
+        }
+    }
+
+    private fun setupObservers() {
+        listViewModel.listItems.subscribe(viewLifecycleOwner) {
+            listAdapter.submitList(it)
+            listAdapter.notifyDataSetChanged()
+        }
     }
 }
