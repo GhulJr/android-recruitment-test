@@ -30,9 +30,8 @@ class DatabaseManager @Inject constructor( //TODO: create interface
 
     fun getPhotos(): Single<List<RawPhoto>> = RxQuery.single(photoBox.query().build())
 
-    fun getAlbum(id: UId): Flowable<RawAlbum> =
-        RxQuery.flowableOneByOne(albumBox.query().equal(RawAlbum_.id, id.value).build())
+    fun getAlbums(): Single<List<RawAlbum>> = RxQuery.single(albumBox.query().build())
 
-    fun getUser(): Single<List<RawPhoto>> = RxQuery.single(photoBox.query().build())
+    fun getUsers(): Single<List<RawUser>> = RxQuery.single(userBox.query().build())
 
 }
