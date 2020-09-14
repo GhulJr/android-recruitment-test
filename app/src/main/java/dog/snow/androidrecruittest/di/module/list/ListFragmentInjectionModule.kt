@@ -9,6 +9,7 @@ import dog.snow.androidrecruittest.ui.common.view_model.ViewModelFactory
 import dog.snow.androidrecruittest.ui.page.list.ListAdapter
 import dog.snow.androidrecruittest.ui.page.list.ListFragment
 import dog.snow.androidrecruittest.ui.page.list.ListFragmentDirections
+
 import dog.snow.androidrecruittest.ui.page.list.ListViewModel
 
 @Module

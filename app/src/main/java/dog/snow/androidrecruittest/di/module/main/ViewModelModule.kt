@@ -31,4 +31,5 @@ interface ViewModelModule {
     @IntoMap
     @ViewModelKey(DetailsViewModel::class)
     fun bindDetailsViewModel(listViewModel: DetailsViewModel): ViewModel
+
 }

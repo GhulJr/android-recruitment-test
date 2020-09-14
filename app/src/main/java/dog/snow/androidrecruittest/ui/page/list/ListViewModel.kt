@@ -43,7 +43,6 @@ class ListViewModel @Inject constructor(
                     }, {
                         _listItems.value = listOf()
                         Log.e(TAG, "Get data from db - error.", it)
-
                     })
         )
     }

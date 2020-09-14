@@ -6,7 +6,6 @@ import dog.snow.androidrecruittest.data.model.raw.RawUser
 import dog.snow.androidrecruittest.data.model.type.common.UId
 import dog.snow.androidrecruittest.data.source.local.DatabaseManager
 import io.reactivex.Flowable
-import io.reactivex.Single
 import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 
@@ -15,6 +14,7 @@ class StorageRepositoryImpl @Inject constructor(
 ) : StorageRepository {
 
     /** Lists. */
+
 
     override fun getPhotos(): Flowable<RawPhoto> = databaseManager.getPhotos()
         .subscribeOn(Schedulers.newThread())
