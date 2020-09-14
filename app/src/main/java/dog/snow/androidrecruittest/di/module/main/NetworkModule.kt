@@ -1,7 +1,6 @@
-package dog.snow.androidrecruittest.di.module
+package dog.snow.androidrecruittest.di.module.main
 
 import android.app.Application
-import com.fasterxml.jackson.databind.DeserializationFeature
 import com.fasterxml.jackson.databind.ObjectMapper
 import dagger.Module
 import dagger.Provides
@@ -31,7 +30,9 @@ class NetworkModule {
     @Singleton
     fun provideCache(application: Application): Cache {
         val cacheSize: Long = 10 * 1024 * 1024
-        val httCacheDirectory = File(application.cacheDir, HTTP_CACHE_NAME)
+        val httCacheDirectory = File(application.cacheDir,
+            HTTP_CACHE_NAME
+        )
         return Cache(httCacheDirectory, cacheSize)
     }
 

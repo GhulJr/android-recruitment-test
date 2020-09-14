@@ -1,4 +1,4 @@
-package dog.snow.androidrecruittest.di.module
+package dog.snow.androidrecruittest.di.module.main
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

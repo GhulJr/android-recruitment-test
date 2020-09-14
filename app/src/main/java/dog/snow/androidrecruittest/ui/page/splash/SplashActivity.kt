@@ -12,9 +12,11 @@ import dog.snow.androidrecruittest.ui.page.main.MainActivity
 import dog.snow.androidrecruittest.utils.setLoadingView
 import dog.snow.androidrecruittest.utils.showError
 import dog.snow.androidrecruittest.utils.subscribe
+import javax.inject.Inject
 
 
 class SplashActivity : BaseActivity() {
+    @Inject
     lateinit var splashViewModel: SplashViewModel
     lateinit var binding: ActivitySplashBinding
 
@@ -28,7 +30,7 @@ class SplashActivity : BaseActivity() {
     /** Utils. */
 
     override fun setupViewModel() {
-        splashViewModel = ViewModelProvider(this, viewModelFactory)[SplashViewModel::class.java]
+        //splashViewModel = ViewModelProvider(this, viewModelFactory)[SplashViewModel::class.java]
         splashViewModel.fetchDataState.subscribe(this) {
             setLoadingView(false)
             when (it) {

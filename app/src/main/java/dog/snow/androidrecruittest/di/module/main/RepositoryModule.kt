@@ -1,4 +1,4 @@
-package dog.snow.androidrecruittest.di.module
+package dog.snow.androidrecruittest.di.module.main
 
 import dagger.Binds
 import dagger.Module

@@ -6,7 +6,7 @@ import dagger.Component
 import dagger.android.AndroidInjectionModule
 import dagger.android.AndroidInjector
 import dog.snow.androidrecruittest.di.ApplicationController
-import dog.snow.androidrecruittest.di.module.*
+import dog.snow.androidrecruittest.di.module.main.*
 import javax.inject.Singleton
 
 @Component(
