@@ -26,7 +26,7 @@ data class RawPhoto(
     val uId: UId,
     @JsonProperty("albumId")
     @Convert(converter = Converters.UID::class, dbType = Long::class)
-    val albumUId: dog.snow.androidrecruittest.data.model.type.common.UId,
+    val albumUId: UId,
     @JsonProperty("title")
     @Convert(converter = Converters.TITLE::class, dbType = String::class)
     val title: Title,

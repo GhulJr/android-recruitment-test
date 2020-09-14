@@ -20,7 +20,6 @@ class StorageModule {
     @Singleton
     fun provideDatabase(application: Application): BoxStore = MyObjectBox.builder()
         .androidContext(application.applicationContext)
-        .debugFlags(DebugFlags.LOG_QUERIES or DebugFlags.LOG_QUERY_PARAMETERS)
         .build()
 
     @Provides
