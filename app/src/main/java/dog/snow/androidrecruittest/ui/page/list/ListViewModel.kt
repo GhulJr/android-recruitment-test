@@ -7,7 +7,4 @@ class ListViewModel @Inject constructor(
 
 ): BaseViewModel() {
 
-    fun ccc() {
-        print("asd")
-    }
 }
