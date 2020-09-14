@@ -3,7 +3,7 @@ package dog.snow.androidrecruittest.di.module
 import android.app.Application
 import dagger.Module
 import dagger.Provides
-import dog.snow.androidrecruittest.data.model.MyObjectBox
+import dog.snow.androidrecruittest.data.model.raw.MyObjectBox
 import dog.snow.androidrecruittest.data.model.raw.RawAlbum
 import dog.snow.androidrecruittest.data.model.raw.RawPhoto
 import dog.snow.androidrecruittest.data.model.raw.RawUser
