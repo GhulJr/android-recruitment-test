@@ -1,8 +1,7 @@
 package dog.snow.androidrecruittest.data.model.type.company
 
 import android.os.Parcelable
-import dog.snow.androidrecruittest.data.model.type.BaseSimpleType
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
-data class Bs(override val value: String) : Parcelable, BaseSimpleType<String>(value)
+data class Bs(val value: String) : Parcelable

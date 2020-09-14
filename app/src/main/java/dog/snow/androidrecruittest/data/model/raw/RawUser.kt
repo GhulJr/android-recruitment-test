@@ -41,7 +41,6 @@ data class RawUser(
     @Convert(converter = Converters.EMAIL::class, dbType = String::class)
     val email: Email,
     @JsonProperty(JsonLabels.ADDRESS)
-    @JsonSerialize(keyUsing = Serializers.RawAddressSerializer::class)
     @Convert(converter = Converters.ADDRESS::class, dbType = String::class)
     val address: RawAddress,
     @JsonProperty(JsonLabels.PHONE)
@@ -51,7 +50,6 @@ data class RawUser(
     @Convert(converter = Converters.WEBSITE::class, dbType = String::class)
     val website: Website,
     @JsonProperty(JsonLabels.COMPANY)
-    @JsonSerialize(keyUsing = Serializers.RawCompanySerializer::class)
     @Convert(converter = Converters.COMPANY::class, dbType = String::class)
     val company: RawCompany
 ) : Parcelable
