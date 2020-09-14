@@ -35,6 +35,8 @@ class ListAdapter(private val onClick: (item: ListItem, position: Int, view: Vie
         RecyclerView.ViewHolder(binding.root) {
         fun bind(item: ListItem) = with(itemView) {
             //TODO: display item.thumbnailUrl in ivThumb
+            binding.tvAlbumTitle.text = item.albumTitle.value
+            binding.tvPhotoTitle.text = item.title.value
 
             binding.executePendingBindings()
             setOnClickListener { onClick(item, adapterPosition, this) }
