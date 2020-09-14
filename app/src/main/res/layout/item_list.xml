@@ -2,6 +2,13 @@
 <layout  xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="listItem"
+            type="dog.snow.androidrecruittest.ui.model.ListItem" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -24,6 +31,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_normal"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:text="@{listItem.albumTitle.value}"
             app:layout_constraintStart_toEndOf="@+id/iv_thumb"
             app:layout_constraintTop_toTopOf="@+id/iv_thumb"
             tools:text="Name" />
@@ -34,6 +42,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spacing_normal"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:text="@{listItem.title.value}"
             app:layout_constraintStart_toStartOf="@+id/tv_photo_title"
             app:layout_constraintTop_toBottomOf="@+id/tv_photo_title"
             tools:text="Description" />
