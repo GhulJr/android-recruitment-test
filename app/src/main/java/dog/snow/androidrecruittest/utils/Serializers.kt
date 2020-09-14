@@ -8,6 +8,9 @@ import dog.snow.androidrecruittest.data.model.raw.RawCompany
 
 object Serializers {
     class RawAddressSerializer : JsonSerializer<RawAddress>() {
+
+        override fun handledType(): Class<RawAddress> = RawAddress::class.java
+
         override fun serialize(
             value: RawAddress?,
             gen: JsonGenerator?,
@@ -29,6 +32,9 @@ object Serializers {
     }
 
     class RawCompanySerializer : JsonSerializer<RawCompany>() {
+
+        override fun handledType(): Class<RawCompany> = RawCompany::class.java
+
         override fun serialize(
             value: RawCompany?,
             gen: JsonGenerator?,
