@@ -5,13 +5,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import dagger.android.support.AndroidSupportInjection
-import dog.snow.androidrecruittest.R
 import dog.snow.androidrecruittest.databinding.FragmentListBinding
+
 import dog.snow.androidrecruittest.utils.subscribe
 import javax.inject.Inject
 
@@ -46,16 +44,10 @@ class ListFragment : Fragment() {
     /** Utils. */
 
     private fun setupViews() {
-        binding.rvItems.apply {
-            adapter = listAdapter
-            layoutManager = LinearLayoutManager(this@ListFragment.context)
-        }
+        binding.rvItems.apply { adapter = listAdapter }
     }
 
     private fun setupObservers() {
-        listViewModel.listItems.subscribe(viewLifecycleOwner) {
-            listAdapter.submitList(it)
-            listAdapter.notifyDataSetChanged()
-        }
+        listViewModel.listItems.subscribe(viewLifecycleOwner) { listAdapter.submitList(it) }
     }
 }
