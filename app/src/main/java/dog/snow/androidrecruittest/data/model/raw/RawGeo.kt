@@ -8,9 +8,6 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class RawGeo(
-    @Id
-    @JsonProperty("unknown")        // For some reason @JsonIgnore does not work
-    var id: Long = 0,
     @JsonProperty("lat")
     val lat: Coordinate,
     @JsonProperty("lng")

@@ -11,9 +11,6 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class RawAddress(
-    @Id
-    @JsonProperty("unknown")        // For some reason @JsonIgnore does not work
-    var id: Long = 0,
     @JsonProperty("street")
     val street: Street,
     @JsonProperty("suite")
