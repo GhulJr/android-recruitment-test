@@ -17,5 +17,10 @@ object JsonLabels {
     const val LNG = "lng"
     const val ALBUMID = "albumId"
     const val URL = "url"
-    const val THUMBNAILURL = "thumbnailUrl"
+    const val EMAIL = "email"
+    const val USERNAME = "username"
+    const val ADDRESS = "address"
+    const val PHONE = "phone"
+    const val WEBSITE = "website"
+    const val COMPANY = "company"
 }

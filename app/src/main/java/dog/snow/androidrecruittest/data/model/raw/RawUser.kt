@@ -11,6 +11,7 @@ import dog.snow.androidrecruittest.data.model.type.user.Phone
 import dog.snow.androidrecruittest.data.model.type.user.Username
 import dog.snow.androidrecruittest.data.model.type.user.Website
 import dog.snow.androidrecruittest.utils.Converters
+import dog.snow.androidrecruittest.utils.JsonLabels
 import io.objectbox.annotation.Convert
 import io.objectbox.annotation.Entity
 import io.objectbox.annotation.Id
@@ -22,31 +23,31 @@ import kotlinx.android.parcel.Parcelize
 @Parcelize
 data class RawUser(
     @Id
-    @JsonProperty("unknown")        // For some reason @JsonIgnore does not work
+    @JsonProperty(JsonLabels.UNKNOWN)        // For some reason @JsonIgnore does not work
     var id: Long = 0,
     @Unique
-    @JsonProperty("id")
+    @JsonProperty(JsonLabels.ID)
     @Convert(converter = Converters.UID::class, dbType = Long::class)
     val uId: UId,
-    @JsonProperty("name")
+    @JsonProperty(JsonLabels.NAME)
     @Convert(converter = Converters.NAME::class, dbType = String::class)
     val name: Name,
-    @JsonProperty("username")
+    @JsonProperty(JsonLabels.USERNAME)
     @Convert(converter = Converters.USERNAME::class, dbType = String::class)
     val username: Username,
-    @JsonProperty("email")
+    @JsonProperty(JsonLabels.EMAIL)
     @Convert(converter = Converters.EMAIL::class, dbType = String::class)
     val email: Email,
-    @JsonProperty("address")
+    @JsonProperty(JsonLabels.ADDRESS)
     @Convert(converter = Converters.ADDRESS::class, dbType = String::class)
     val address: RawAddress,
-    @JsonProperty("phone")
+    @JsonProperty(JsonLabels.PHONE)
     @Convert(converter = Converters.PHONE::class, dbType = String::class)
     val phone: Phone,
-    @JsonProperty("website")
+    @JsonProperty(JsonLabels.WEBSITE)
     @Convert(converter = Converters.WEBSITE::class, dbType = String::class)
     val website: Website,
-    @JsonProperty("company")
+    @JsonProperty(JsonLabels.COMPANY)
     @Convert(converter = Converters.COMPANY::class, dbType = String::class)
     val company: RawCompany
 ) : Parcelable
