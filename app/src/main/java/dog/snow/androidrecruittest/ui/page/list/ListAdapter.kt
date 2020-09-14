@@ -17,20 +17,16 @@ class ListAdapter(private val onClick: (item: ListItem, position: Int, view: Vie
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val itemView =
             LayoutInflater.from(parent.context).inflate(R.layout.item_list, parent, false)
-        return ViewHolder(
-            itemView,
-            onClick
-        )
+        return ViewHolder(itemView, onClick)
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) =
-        holder.bind(getItem(position))
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) = holder.bind(getItem(position))
 
-    class ViewHolder(
+    inner class ViewHolder(
         itemView: View,
         private val onClick: (item: ListItem, position: Int, view: View) -> Unit
     ) :
-        RecyclerView.ViewHolder(itemView) {
+        RecyclerView.ViewHolder(itemView) { //TODO: use databinding
         fun bind(item: ListItem) = with(itemView) {
             val ivThumb: ImageView = findViewById(R.id.iv_thumb)
             val tvTitle: TextView = findViewById(R.id.tv_photo_title)
@@ -45,7 +41,7 @@ class ListAdapter(private val onClick: (item: ListItem, position: Int, view: Vie
     companion object {
         private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<ListItem>() {
             override fun areItemsTheSame(oldItem: ListItem, newItem: ListItem): Boolean =
-                oldItem.UId == newItem.UId
+                oldItem.uId.value == newItem.uId.value
 
             override fun areContentsTheSame(oldItem: ListItem, newItem: ListItem): Boolean =
                 oldItem == newItem

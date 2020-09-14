@@ -8,7 +8,7 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class ListItem(
-    val UId: UId,
+    val uId: UId,
     val title: Title,
     val albumTitle: Title,
     val thumbnailUrl: Url
