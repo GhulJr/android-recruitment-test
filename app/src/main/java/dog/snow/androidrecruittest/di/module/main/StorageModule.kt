@@ -9,6 +9,7 @@ import dog.snow.androidrecruittest.data.model.raw.RawPhoto
 import dog.snow.androidrecruittest.data.model.raw.RawUser
 import io.objectbox.Box
 import io.objectbox.BoxStore
+import io.objectbox.DebugFlags
 import io.objectbox.kotlin.boxFor
 import javax.inject.Singleton
 
@@ -19,6 +20,7 @@ class StorageModule {
     @Singleton
     fun provideDatabase(application: Application): BoxStore = MyObjectBox.builder()
         .androidContext(application.applicationContext)
+        .debugFlags(DebugFlags.LOG_QUERIES or DebugFlags.LOG_QUERY_PARAMETERS)
         .build()
 
     @Provides

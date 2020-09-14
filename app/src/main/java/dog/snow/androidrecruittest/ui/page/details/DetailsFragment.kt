@@ -30,4 +30,11 @@ class DetailsFragment : Fragment(R.layout.fragment_details) {
         binding = FragmentDetailsBinding.inflate(inflater, container, false)
         return binding.root
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        detailsViewModel.getDetails(DetailsFragmentArgs.fromBundle(requireArguments()).photoUId)
+    }
+
+
 }

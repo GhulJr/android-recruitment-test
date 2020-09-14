@@ -12,7 +12,7 @@
             android:id="@+id/action_listFragment_to_detailsFragment"
             app:destination="@id/detailsFragment" >
             <argument
-                android:name="detailsUId"
+                android:name="photoUId"
                 app:argType="dog.snow.androidrecruittest.data.model.type.common.UId" />
         </action>
     </fragment>
@@ -21,7 +21,7 @@
         android:name="dog.snow.androidrecruittest.ui.page.details.DetailsFragment"
         android:label="DetailsFragment" >
         <argument
-            android:name="detailsUId"
+            android:name="photoUId"
             app:argType="dog.snow.androidrecruittest.data.model.type.common.UId" />
     </fragment>
 </navigation>
