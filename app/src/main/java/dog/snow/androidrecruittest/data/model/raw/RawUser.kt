@@ -2,6 +2,7 @@ package dog.snow.androidrecruittest.data.model.raw
 
 import android.os.Parcelable
 import com.fasterxml.jackson.annotation.JsonProperty
+import com.fasterxml.jackson.databind.annotation.JsonSerialize
 import dog.snow.androidrecruittest.data.model.raw.RawAddress
 import dog.snow.androidrecruittest.data.model.raw.RawCompany
 import dog.snow.androidrecruittest.data.model.type.common.UId
@@ -12,6 +13,7 @@ import dog.snow.androidrecruittest.data.model.type.user.Username
 import dog.snow.androidrecruittest.data.model.type.user.Website
 import dog.snow.androidrecruittest.utils.Converters
 import dog.snow.androidrecruittest.utils.JsonLabels
+import dog.snow.androidrecruittest.utils.Serializers
 import io.objectbox.annotation.Convert
 import io.objectbox.annotation.Entity
 import io.objectbox.annotation.Id
@@ -39,6 +41,7 @@ data class RawUser(
     @Convert(converter = Converters.EMAIL::class, dbType = String::class)
     val email: Email,
     @JsonProperty(JsonLabels.ADDRESS)
+    @JsonSerialize(keyUsing = Serializers.RawAddressSerializer::class)
     @Convert(converter = Converters.ADDRESS::class, dbType = String::class)
     val address: RawAddress,
     @JsonProperty(JsonLabels.PHONE)
@@ -48,6 +51,7 @@ data class RawUser(
     @Convert(converter = Converters.WEBSITE::class, dbType = String::class)
     val website: Website,
     @JsonProperty(JsonLabels.COMPANY)
+    @JsonSerialize(keyUsing = Serializers.RawCompanySerializer::class)
     @Convert(converter = Converters.COMPANY::class, dbType = String::class)
     val company: RawCompany
 ) : Parcelable
