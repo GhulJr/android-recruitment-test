@@ -19,7 +19,7 @@ class DatabaseManager @Inject constructor( //TODO: create interface
     }
 
     fun putAlbum(album: RawAlbum): Unit = with(albumBox) {
-        query().equal(RawAlbum_.uId, album.uId.value).build().remove() //TODO: separate query method.
+        query().equal(RawAlbum_.uId, album.uId.value).build().remove()
         put(album)
     }
 
@@ -28,10 +28,12 @@ class DatabaseManager @Inject constructor( //TODO: create interface
         put(user)
     }
 
-    fun getPhotos(): Single<List<RawPhoto>> = RxQuery.single(photoBox.query().build())
+    fun getPhotos(): Flowable<RawPhoto> = RxQuery.flowableOneByOne(photoBox.query().build())
 
-    fun getAlbums(): Single<List<RawAlbum>> = RxQuery.single(albumBox.query().build())
+    fun getAlbum(uId: UId): Flowable<RawAlbum> =
+        RxQuery.flowableOneByOne(albumBox.query().equal(RawAlbum_.uId, uId.value).build())
 
-    fun getUsers(): Single<List<RawUser>> = RxQuery.single(userBox.query().build())
+    fun getUser(uId: UId): Flowable<RawUser> =
+        RxQuery.flowableOneByOne(userBox.query().equal(RawUser_.uId, uId.value).build())
 
 }

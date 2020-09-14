@@ -11,6 +11,7 @@ import io.reactivex.Flowable
 import io.reactivex.Single
 
 import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.rxkotlin.toFlowable
 import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -39,7 +40,7 @@ class SourceRepositoryImpl @Inject constructor(
             it
         }.map { photos -> photos.distinctBy { it.albumUId } }
 
-    private fun pullAlbums(photos: List<RawPhoto>) = Flowable.fromIterable(photos)
+    private fun pullAlbums(photos: List<RawPhoto>) = photos.toFlowable()
         .flatMap { albumService.fetchAlbum(it.albumUId) }
         .map {
             dbManager.putAlbum(it)
