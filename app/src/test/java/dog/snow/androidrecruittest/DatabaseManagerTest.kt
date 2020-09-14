@@ -1,15 +1,10 @@
 package dog.snow.androidrecruittest
 
 import dog.snow.androidrecruittest.TestingUtils.rawPhoto
-import dog.snow.androidrecruittest.data.model.raw.MyObjectBox
-import dog.snow.androidrecruittest.data.model.raw.RawPhoto
-import dog.snow.androidrecruittest.data.model.raw.RawPhoto_
-import dog.snow.androidrecruittest.data.model.type.common.Title
-import dog.snow.androidrecruittest.data.model.type.common.UId
-import dog.snow.androidrecruittest.data.model.type.photo.Url
+import dog.snow.androidrecruittest.TestingUtils.rawUser
+import dog.snow.androidrecruittest.data.model.raw.*
 import io.objectbox.BoxStore
 import io.objectbox.DebugFlags
-import junit.framework.TestResult
 
 import org.junit.After
 import org.junit.Assert.*
@@ -59,11 +54,11 @@ class DatabaseManagerTest {
 
     @Test
     fun `insert user and then get user`() {
-        val photoBox =boxStore.boxFor(RawPhoto::class.java)
-        photoBox.put(rawPhoto)
-        assertEquals(1, photoBox.count())
+        val userBox = boxStore.boxFor(RawUser::class.java)
+        userBox.put(rawUser)
+        assertEquals(1, userBox.count())
 
-        val photo = photoBox.query().equal(RawPhoto_.uId, rawPhoto.uId.value).build().find()
+        val photo = userBox.query().equal(RawUser_.uId, rawUser.uId.value).build().find()
 
         assertEquals(1, photo.size)
         assertEquals(rawPhoto.uId.value, photo[0].uId.value)
