@@ -5,7 +5,7 @@ import dog.snow.androidrecruittest.data.model.raw.RawPhoto
 import dog.snow.androidrecruittest.data.model.raw.RawUser
 import dog.snow.androidrecruittest.data.model.type.common.UId
 import io.reactivex.Flowable
-import io.reactivex.Single
+
 
 interface StorageRepository {
     fun getPhotos(): Flowable<RawPhoto>

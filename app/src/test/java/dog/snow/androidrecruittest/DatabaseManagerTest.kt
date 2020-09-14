@@ -5,6 +5,15 @@ import dog.snow.androidrecruittest.TestingUtils.rawUser
 import dog.snow.androidrecruittest.data.model.raw.*
 import io.objectbox.BoxStore
 import io.objectbox.DebugFlags
+import dog.snow.androidrecruittest.data.model.raw.MyObjectBox
+import dog.snow.androidrecruittest.data.model.raw.RawPhoto
+import dog.snow.androidrecruittest.data.model.raw.RawPhoto_
+import dog.snow.androidrecruittest.data.model.type.common.Title
+import dog.snow.androidrecruittest.data.model.type.common.UId
+import dog.snow.androidrecruittest.data.model.type.photo.Url
+import io.objectbox.BoxStore
+import io.objectbox.DebugFlags
+import junit.framework.TestResult
 
 import org.junit.After
 import org.junit.Assert.*

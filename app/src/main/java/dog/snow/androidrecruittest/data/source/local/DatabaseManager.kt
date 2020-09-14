@@ -37,5 +37,4 @@ class DatabaseManager @Inject constructor( //TODO: create interface
 
     fun getUser(userUId: UId): Flowable<RawUser> =
         RxQuery.flowableOneByOne(userBox.query().equal(RawUser_.uId, userUId.value).build())
-
 }
