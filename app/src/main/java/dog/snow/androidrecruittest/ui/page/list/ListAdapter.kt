@@ -33,6 +33,7 @@ class ListAdapter(private val onClick: (item: ListItem, position: Int, view: Vie
             submitList(originalList)
             return
         }
+        
         val filteredList = originalList?.filter {
             checkIfContains(it.title.value, text.toLowerCase(Locale.getDefault()))
                     || checkIfContains(it.albumTitle.value, text.toLowerCase(Locale.getDefault()))
