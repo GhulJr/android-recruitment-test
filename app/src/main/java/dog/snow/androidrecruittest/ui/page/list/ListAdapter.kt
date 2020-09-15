@@ -28,14 +28,14 @@ class ListAdapter(private val onClick: (item: ListItem, position: Int, view: Vie
     override fun onBindViewHolder(holder: ViewHolder, position: Int) =
         holder.bind(getItem(position))
 
-    fun filter(query: CharSequence?) {
-        if (query.isNullOrBlank()) {
+    fun filter(text: String?) {
+        if (text.isNullOrBlank()) {
             submitList(originalList)
             return
         }
-        val text = query.toString().toLowerCase(Locale.getDefault())
         val filteredList = originalList?.filter {
-            checkIfContains(it.title.value, text) || checkIfContains(it.albumTitle.value, text)
+            checkIfContains(it.title.value, text.toLowerCase(Locale.getDefault()))
+                    || checkIfContains(it.albumTitle.value, text.toLowerCase(Locale.getDefault()))
         }
         submitList(filteredList)
     }
