@@ -22,19 +22,4 @@ data class Detail(
     val email: Email,
     val phone: Phone,
     val url: Url
-) : Parcelable {
-
-    companion object { // TODO: create binding module
-        @BindingAdapter("avatar")
-        @JvmStatic
-        fun loadImage(imageView: ImageView, url: Url) {
-            Picasso.get()
-                .load(url.value)
-                .placeholder(R.drawable.ic_placeholder)
-                //.centerCrop()
-                //.resize(850, 850)
-                //.transform(RoundedCornersTransformation(40, 0))
-                .into(imageView)
-        }
-    }
-}
+) : Parcelable
