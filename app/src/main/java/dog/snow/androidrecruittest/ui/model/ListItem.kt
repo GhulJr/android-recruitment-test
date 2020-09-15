@@ -4,6 +4,7 @@ import android.os.Parcelable
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import com.squareup.picasso.Picasso
+import dog.snow.androidrecruittest.R
 import dog.snow.androidrecruittest.data.model.type.common.UId
 import dog.snow.androidrecruittest.data.model.type.common.Title
 import dog.snow.androidrecruittest.data.model.type.photo.Url
@@ -23,6 +24,7 @@ data class ListItem(
         fun loadImage(imageView: ImageView, url: Url?) {
             Picasso.get()
                 .load(url?.value)
+                .placeholder(R.drawable.ic_placeholder)
                 //.centerCrop()
                 //.resize(850, 850)
                 //.transform(RoundedCornersTransformation(40, 0))
