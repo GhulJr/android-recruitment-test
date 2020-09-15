@@ -12,6 +12,7 @@ import dog.snow.androidrecruittest.ui.common.rx.RxTextWatcher
 
 import dog.snow.androidrecruittest.utils.subscribe
 import io.reactivex.disposables.Disposable
+import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
 class ListFragment : Fragment() {
@@ -55,7 +56,7 @@ class ListFragment : Fragment() {
         searchListenerDisposable = RxTextWatcher.fromView(binding.layoutSearch.etSearch)
             .subscribe {
                 listAdapter.filter(it)
-                displayNoResults(shouldDisplay = listAdapter.currentList.isEmpty())
+                displayNoResults(shouldDisplay = listAdapter.filteredList.isNullOrEmpty())
             }
     }
 

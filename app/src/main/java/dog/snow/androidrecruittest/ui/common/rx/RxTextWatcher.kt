@@ -7,6 +7,7 @@ import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import io.reactivex.subjects.PublishSubject
+import java.util.concurrent.TimeUnit
 
 object RxTextWatcher {
     fun fromView(textView: TextInputEditText): Observable<String> {
@@ -14,6 +15,9 @@ object RxTextWatcher {
         textView.addTextChangedListener {
             publishSubject.onNext(it.toString())
         }
-        return publishSubject.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+        return publishSubject
+            .subscribeOn(Schedulers.io())
+            .debounce(200, TimeUnit.MILLISECONDS)
+            .observeOn(AndroidSchedulers.mainThread())
     }
 }

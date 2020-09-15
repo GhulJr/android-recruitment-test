@@ -14,6 +14,7 @@ class ListAdapter(private val onClick: (item: ListItem, position: Int, view: Vie
         DIFF_CALLBACK
     ) {
     private var originalList: List<ListItem>? = null
+    var filteredList: List<ListItem>? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val itemView =
@@ -31,9 +32,10 @@ class ListAdapter(private val onClick: (item: ListItem, position: Int, view: Vie
     fun filter(text: String?) {
         if (text.isNullOrBlank()) {
             submitList(originalList)
+            filteredList = originalList
             return
         }
-        val filteredList = originalList?.filter {
+        filteredList = originalList?.filter {
             checkIfContains(it.title.value, text.toLowerCase(Locale.getDefault()))
                     || checkIfContains(it.albumTitle.value, text.toLowerCase(Locale.getDefault()))
         }
