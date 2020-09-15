@@ -16,8 +16,7 @@
         android:layout_marginStart="@dimen/margin_normal"
         android:layout_marginEnd="@dimen/margin_normal"
         android:layout_marginBottom="@dimen/margin_small"
-        app:cardCornerRadius="8dp"
-        android:elevation="4dp">
+        style="@style/CardView.MyCardView">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"

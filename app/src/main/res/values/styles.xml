@@ -9,4 +9,9 @@
     <style name="Base.Widget.MaterialComponents.TextView.BaseTextView">
         <item name="android:background">@android:color/transparent</item>
     </style>
+
+    <style name="CardView.MyCardView">
+        <item name="android:elevation">@dimen/cardview_corner_radius</item>
+        <item name="cardCornerRadius">@dimen/cardview_elevation</item>
+    </style>
 </resources>
