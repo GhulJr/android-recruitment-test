@@ -14,6 +14,7 @@ import javax.inject.Singleton
         AndroidInjectionModule::class,
         ActivityModule::class,
         FragmentModule::class,
+        BroadcastReceiverModule::class,
         NetworkModule::class,
         StorageModule::class,
         ViewModelModule::class,

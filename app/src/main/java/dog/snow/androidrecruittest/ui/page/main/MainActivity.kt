@@ -1,11 +1,16 @@
 package dog.snow.androidrecruittest.ui.page.main
 
+import android.content.Context
+import android.net.ConnectivityManager
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.work.PeriodicWorkRequest
+import androidx.work.WorkRequest
+import androidx.work.Worker
 import dagger.android.AndroidInjection
 import dog.snow.androidrecruittest.R
 import dog.snow.androidrecruittest.databinding.ActivityMainBinding
@@ -29,4 +34,7 @@ class MainActivity : AppCompatActivity() {
         return true
     }
 
+    private fun registerNetworkBroadcast() {
+
+    }
 }
