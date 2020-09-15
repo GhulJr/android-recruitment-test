@@ -48,6 +48,6 @@ class ListFragment : Fragment() {
     }
 
     private fun setupObservers() {
-        listViewModel.listItems.subscribe(viewLifecycleOwner) { listAdapter.submitList(it) }
+        listViewModel.listItems.subscribe(viewLifecycleOwner) { listAdapter.modifyList(it) }
     }
 }
